@@ -1,0 +1,34 @@
+{
+  "name": "chat-app-mern-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duy-DaoNg/chat-app-nodejs.git"
+  },
+  "keywords": [
+    "chat-app",
+    "nodejs",
+    "express",
+    "websocket"
+  ],
+  "author": "duydaong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Duy-DaoNg/chat-app-nodejs/issues"
+  },
+  "homepage": "https://github.com/Duy-DaoNg/chat-app-nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
