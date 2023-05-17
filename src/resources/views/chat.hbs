@@ -1,0 +1,71 @@
+<!DOCTYPE html><html class=''>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
+<link href="https:////maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+
+
+<div id="frame">
+	<div id="sidepanel">
+		<div id="profile">
+			<div class="wrap">
+				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
+				<p id="currentUsername"></p>
+			</div>
+		</div>
+		<div id="search">
+			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+			<input type="text" placeholder="Search contacts..." />
+		</div>
+		<div id="contacts">
+			<ul>
+				
+			</ul>
+		</div>
+		<div id="bottom-bar">
+			<button id="addcontact" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
+			<button id="logout"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> <span>Log Out</span></button>
+		</div>
+	</div>
+	<div class="content">
+		
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="border: none;">
+				<h5 class="modal-title" id="exampleModalLabel" style="color: white;">Search your friend by Email</h5>
+				<button type="button" class="close close-popup-btn" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<input type="text" class="form-control" id="search-friend-input" placeholder="Search" 
+							style="background-color: #32465a; border:none; color:white;">
+				</div>
+				<ul class="list-group" id="options">
+					
+				</ul>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" class="btn btn-secondary close-popup-btn" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="confirm-select">Confirm</button>
+			</div>
+		</div>
+	</div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+	<script src="https:////cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https:////maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+	<script src="js/chat.js"></script>
+
+</body></html>

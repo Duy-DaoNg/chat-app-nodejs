@@ -1,2 +1,5 @@
 node_modules/
-src/public/css
+src/serviceAccountKey.json
+.env
+src/resources/scss/
+src/public/*.html
