@@ -1,5 +1,5 @@
 import mongoose, {Schema, ObjectId} from 'mongoose'
-import isEmail from 'validator/lib/isemail.js'
+import isEmail from 'validator/lib/isEmail.js'
 export default mongoose.model('User',
     new Schema({
         id: {type: ObjectId},
