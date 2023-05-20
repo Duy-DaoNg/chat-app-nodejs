@@ -84,23 +84,48 @@ const conversation = async (req, res, next) => {
     var validRequest = await validUserId(req.body.receiver.id)
     validRequest = validRequest && await validUserId(req.body.sender.id)
     if (validRequest) {
-        const members = {
-            members: [
-                {
-                    userId: req.body.sender.id,
-                    username: req.body.sender.name
-                },
-                {
-                    userId: req.body.receiver.id,
-                    username: req.body.receiver.name
-                }
-            ]
+        const query = {
+            members: {
+                $all: [
+                    { $elemMatch: 
+                        {
+                            userId: req.body.sender.id,
+                            username: req.body.sender.name 
+                        } 
+                    },
+                    { $elemMatch: 
+                        { 
+                            userId: req.body.receiver.id,
+                            username: req.body.receiver.name 
+                        } 
+                    }
+                ]
+            }
         }
-        const existConversation = await ConversationModel.find(members)
-        if (existConversation.length) {
+        const members = [
+            {
+                userId: req.body.sender.id,
+                username: req.body.sender.name
+            },
+            {
+                userId: req.body.receiver.id,
+                username: req.body.receiver.name
+            }
+        ]
+        const lastMessage = {
+            messageType: 'text',
+            messageContent: `${req.body.sender.name} created conversation`
+        }
+        
+        const existConversation = await ConversationModel.findOne(query)
+        if (existConversation) {
             res.status(500).json({message: "Conversation existed"})
         } else {
-            const newConversation = new ConversationModel(members)
+            const newConversation = new ConversationModel({
+                members, 
+                lastMessage,
+                sender: req.body.sender.id
+            })
             try {
                 const savedConversation = await newConversation.save()
                 res.status(200).json(savedConversation)

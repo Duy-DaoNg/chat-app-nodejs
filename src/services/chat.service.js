@@ -53,6 +53,12 @@ class SocketServices {
                 _io.to(socket.id).emit("resetConversationStatus", {conversationId})
             }
         })
+        socket.on('send loadContactSignal', ({receiverId}) => {
+            const receiver = getUser(receiverId)
+            if (receiver) {
+                _io.to(receiver.socketId).emit('receive loadContactSignal', {message: 'load your contact'})
+            }
+        })
         // user disconnected
         socket.on('disconnect', () => {
             removeUser(socket.id)

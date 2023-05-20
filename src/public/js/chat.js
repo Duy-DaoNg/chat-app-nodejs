@@ -306,6 +306,7 @@ async function renderContact() {
     });
   })
   .catch((error) => {
+      console.log(error)
       alert('invalid username or password')
   })
   // render conversion
@@ -428,6 +429,7 @@ window.addEventListener("load", (event) => {
     })
     .then(res => {
       if (res.data.length > 0){
+        $('#options').empty()
         res.data.forEach(data => {
           $(`
             <li class="list-group-item option" id=${data._id}>
@@ -450,6 +452,7 @@ window.addEventListener("load", (event) => {
           }
         });
       } else {
+        $('#options').empty()
         $(`<p style="color: white; text-align: center">Can't find your friend</p>`).appendTo('#options')
       }
     }).catch(error => {
@@ -463,9 +466,10 @@ window.addEventListener("load", (event) => {
         if (!data.message){
           renderContact()
           alert("Add Contact successfully")
-          addContactValue = ''
           $('#options').empty()
           $('#search-friend-input').val('')
+          socket.emit('send loadContactSignal', {receiverId:addContactValue.receiver.id} )
+          addContactValue = ''
         } else {
           alert(data.message)
         }
@@ -496,6 +500,10 @@ socket.on('receive image', ({senderId, senderName,fileURL,conversationId}) => {
   $(".messages").animate({ scrollTop: $(".messages ul").height() }, 500)
   id++;
 }
+})
+socket.on('receive loadContactSignal',({message}) => {
+  console.log(message)
+  renderContact()
 })
 socket.on('receive setConversationStatus', ({conversationId}) => {
     $(`#${conversationId} .contact-status`).removeClass("offline")
