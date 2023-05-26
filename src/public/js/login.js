@@ -60,7 +60,7 @@ window.addEventListener("load", (event) => {
             window.location.href = '/chat'
         })
         .catch((error) => {
-            alert('invalid username or password')
+            alert('invalid email or password')
         })
     })
     signupBtn = document.querySelector('.register-btn')
@@ -83,7 +83,7 @@ window.addEventListener("load", (event) => {
             document.querySelector('.login-link').click()
         })
         .catch((error) => {
-            alert('invalid username or email')
+            alert('invalid username (min 6 characters) or email')
         })
     })
 })
