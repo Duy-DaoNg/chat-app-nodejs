@@ -263,7 +263,8 @@ body{
     font-size: 19px;
 }
 .input-box input:focus~ label,
-.input-box input:valid~ label{
+.input-box input:valid~ label,
+.input-box input:invalid~ label{
     top: -5px;
 }
 .remember-password{
